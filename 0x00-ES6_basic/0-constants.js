@@ -1,16 +1,15 @@
-function taskFirst() {
-  const myVar = 'I prefer const when I can.';
-
-  return (myVar);
+export function taskFirst() {
+  const task = 'I prefer const when I can.';
+  return task;
 }
 
-function taskNext() {
-  let myVar = 'But sometimes ley is okay';
-
-  return (myVar);
+export function getLast() {
+  return ' is okay';
 }
 
-module.exports = {
-  taskFirst,
-  taskNext
-};
+export function taskNext() {
+  let combination = 'But sometimes let';
+  combination += getLast();
+
+  return combination;
+}
