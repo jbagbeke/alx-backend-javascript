@@ -8,7 +8,6 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   ]).then((returnPromises) => {
     const myArray = [];
 
-    console.log(returnPromises.length);
     for (const object of returnPromises) {
       const tmpDict = {};
       tmpDict.status = object.status;
