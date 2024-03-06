@@ -9,10 +9,16 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     const myArray = [];
 
     console.log(returnPromises.length);
-    for (const idx of returnPromises) {
-      if (idx) {
-        myArray.push(idx);
+    for (const object of returnPromises) {
+      const tmpDict = {};
+      tmpDict.status = object.status;
+
+      if (object.status === 'rejected') {
+        tmpDict.value = object.reason;
+      } else {
+        tmpDict.value = object.value;
       }
+      myArray.push(tmpDict);
     }
 
     return myArray;
