@@ -4,6 +4,7 @@ console.log(handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg"));
 
 async function waiting() {
   const test = await handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg");
+  console.log(test);
 }
 
 console.log();
