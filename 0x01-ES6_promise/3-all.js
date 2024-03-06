@@ -5,6 +5,6 @@ export default function handleProfileSignup() {
     uploadPhoto(),
     createUser(),
   ]).then((objects) => {
-    console.log(objects[0].body, objects[1].firstName, objects[1].lastName);
+    console.log(`${objects[0].body} ${objects[1].firstName} ${objects[1].lastName}`);
   }).catch(() => console.log('Signup system offline'));
 }
