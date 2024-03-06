@@ -13,7 +13,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
       tmpDict.status = object.status;
 
       if (object.status === 'rejected') {
-        tmpDict.value = object.reason;
+        tmpDict.value = `${object.reason}`;
       } else {
         tmpDict.value = object.value;
       }
