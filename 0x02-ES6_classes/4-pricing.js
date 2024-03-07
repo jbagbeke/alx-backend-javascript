@@ -41,4 +41,12 @@ export default class Pricing {
   displayFullPrice() {
     return (`${this.amount} ${this.currency.displayFullCurrency()}`);
   }
+
+  static convertPrice(amount, conversionRate) {
+    if (!(typeof amount === 'number') || !(typeof conversionRate === 'number')) {
+      throw new TypeError('Invalid Arguments Passed');
+    }
+
+    return amount * conversionRate;
+  }
 }
