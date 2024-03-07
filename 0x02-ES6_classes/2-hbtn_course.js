@@ -30,7 +30,7 @@ export default class HolbertonCourse {
   }
 
   set students(students) {
-    if (Array.isArray(students) && students.forEach((element) => (typeof element === 'string'))) {
+    if (Array.isArray(students) && (students.every((element) => typeof element === 'string' && element.trim() !== ''))) {
       this._students = students;
     }
   }
