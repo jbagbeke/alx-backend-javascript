@@ -9,7 +9,7 @@ class TestBuilding extends Building {
   }
 
   evacuationWarningMessage() {
-    console.log('HEllo'); /* eslint class-methods-use-this: 0 */
+    console.log('Hello')
   }
 }
 
