@@ -1,10 +1,10 @@
 export default class Building {
   constructor(sqft) {
     this._verifySQFT(sqft);
+  }
 
-    if (typeof this.evacuationWarningMessage !== 'function') {
-      throw new Error('Class extending Building must override evacuationWarningMessage');
-    }
+  evacuationWarningMessage() {
+    throw new Error('Class extending Building must override evacuationWarningMessage'); /* eslint class-methods-use-this: 0 */
   }
 
   set sqft(sqft) {
