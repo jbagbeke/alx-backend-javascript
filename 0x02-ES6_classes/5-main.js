@@ -7,10 +7,6 @@ class TestBuilding extends Building {
   constructor(number) {
     super(number);
   }
-
-  evacuationWarningMessage() {
-    console.log('Hello')
-  }
 }
 
 try {
