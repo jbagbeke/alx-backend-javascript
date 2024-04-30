@@ -3,16 +3,22 @@ const fs = require('fs');
 function countStudents(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
+
+    if (!content) {
+      process.exit();
+    }
     const lines = content.split('\n');
     const CS = [];
     const SWE = [];
 
     process.stdout.write(`Number of students: ${lines.length - 1}\n`);
     lines.forEach((line) => {
-      if (line.endsWith('CS')) {
-        CS.push(line.split(',')[0]);
-      } else if (line.endsWith('SWE')) {
-        SWE.push(line.split(',')[0]);
+      if (line) {
+        if (line.endsWith('CS')) {
+          CS.push(line.split(',')[0]);
+        } else if (line.endsWith('SWE')) {
+          SWE.push(line.split(',')[0]);
+        }
       }
     });
 
@@ -22,5 +28,5 @@ function countStudents(filePath) {
     throw new Error('Cannot load the database');
   }
 }
-
+countStudents('database.csv');
 module.exports = countStudents;
