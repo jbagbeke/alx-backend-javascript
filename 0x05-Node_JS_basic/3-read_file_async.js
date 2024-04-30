@@ -10,16 +10,15 @@ function countStudents(filePath) {
         let count = 0;
         const lines = data.split('\n');
         lines.forEach((line) => {
-          if (line) {
-            const lne = line.split(',');
-            const field = lne[lne.length - 1];
-            if (lne.length && field && field !== 'field') {
-              count += 1;
-              if (field in studentFields) {
-                studentFields[field].push(line[0]);
-              } else {
-                studentFields[field] = [lne[0]];
-              }
+          const lne = line.split(',');
+          const field = lne[lne.length - 1];
+          
+          if (lne.length > 0 && field.length > 0 && field !== 'field') {
+            count += 1;
+            if (field in studentFields) {
+              studentFields[field].push(lne[0]);
+            } else {
+              studentFields[field] = [lne[0]];
             }
           }
         });
