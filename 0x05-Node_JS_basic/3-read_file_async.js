@@ -12,7 +12,7 @@ function countStudents(filePath) {
         lines.forEach((line) => {
           const lne = line.split(',');
           const field = lne[lne.length - 1];
-          
+
           if (lne.length > 0 && field.length > 0 && field !== 'field') {
             count += 1;
             if (field in studentFields) {
