@@ -8,25 +8,28 @@ function countStudents(filePath) {
       }
       const studentFields = {};
       let count = 0;
-      const lines = data.split('\n');
-      lines.forEach((line) => {
-        const lne = line.split(',');
-        const field = lne[lne.length - 1];
-        if (lne.length && field && field !== 'field') {
-          count += 1;
-          if (field in studentFields) {
-            studentFields[field].push(line[0]);
-          } else {
-            studentFields[field] = [lne[0]];
+      
+      if (data) {
+        const lines = data.split('\n');
+          lines.forEach((line) => {
+            const lne = line.split(',');
+            const field = lne[lne.length - 1];
+            if (lne.length && field && field !== 'field') {
+              count += 1;
+              if (field in studentFields) {
+                studentFields[field].push(line[0]);
+              } else {
+                studentFields[field] = [lne[0]];
+              }
+            }
+          });
+    
+          console.log(`Number of students: ${count}`);
+          for (const [key, val] of Object.entries(studentFields)) {
+            console.log(`Number of students in ${key}: ${val.length}. List: ${val.join(', ')}`);
           }
-        }
-      });
-
-      console.log(`Number of students: ${count}`);
-      for (const [key, val] of Object.entries(studentFields)) {
-        console.log(`Number of students in ${key}: ${val.length}. List: ${val.join(', ')}`);
+          resolve();
       }
-      resolve();
     });
   });
 }
