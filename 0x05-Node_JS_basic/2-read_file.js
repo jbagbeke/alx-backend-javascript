@@ -8,25 +8,29 @@ function countStudents(filePath) {
       process.exit();
     }
     const lines = content.split('\n');
-    const CS = [];
-    const SWE = [];
+    const studentFields = {};
     let studentCount = 0;
 
     lines.forEach((line) => {
-      if (line) {
-        if (line.endsWith('CS')) {
-          CS.push(line.split(',')[0]);
+      if (line.length > 0) {
+        const lne = line.split(',');
+        const fld = lne[lne.length - 1];
+
+        if (fld && fld !== 'field') {
           studentCount += 1;
-        } else if (line.endsWith('SWE')) {
-          SWE.push(line.split(',')[0]);
-          studentCount += 1;
+          if (fld in studentFields) {
+            studentFields[fld].push(lne[0]);
+          } else {
+            studentFields[fld] = [lne[0]];
+          }
         }
       }
     });
 
-    process.stdout.write(`Number of students: ${studentCount}\n`);
-    process.stdout.write(`Number of CS: ${CS.length}. List: ${CS.join(', ')}\n`);
-    process.stdout.write(`Number of SWE: ${SWE.length}. List ${SWE.join(', ')}\n`);
+    console.log(`Number of students: ${studentCount}`);
+    for (const [key, val] of Object.entries(studentFields)) {
+      console.log(`Number of ${key}: ${val.length}. List: ${val.join(', ')}`);
+    }
   } catch (err) {
     throw new Error('Cannot load the database');
   }
