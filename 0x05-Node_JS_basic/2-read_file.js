@@ -3,10 +3,6 @@ const fs = require('fs');
 function countStudents(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
-
-    if (!content) {
-      process.exit();
-    }
     const lines = content.split('\n');
     const studentFields = {};
     let studentCount = 0;
