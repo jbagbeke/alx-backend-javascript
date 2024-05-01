@@ -38,6 +38,8 @@ const http = require('http');
 const app = http.createServer((request, response) => {
   const { url } = request;
 
+  response.statusCode = 200;
+  response.setHeader('Content-Type', 'text/plain');
   if (url === '/') {
     response.end('Hello Holberton School!');
   } else if (url === '/students') {
