@@ -9,8 +9,6 @@ describe('API TEST SUITE', () => {
             expect(response.data.slice(0, -1)).to.equal('Welcome to the payment system')
             expect(response.status).to.equal(200);
             done();       
-        }).catch((error) => {
-            console.log(error)
         })
     })
 })
