@@ -1,5 +1,6 @@
 const { expect } = require('chai');
 
+/* eslint no-undef: 0 */
 describe('Testing numbers', () => {
   it('1 is equal to 1', () => {
     expect(1 === 1).to.be.true;
