@@ -3,25 +3,14 @@ const axios = require('axios')
 
 /* eslint no-undef: 0 */
 describe('API TEST SUITE', () => {
-    let response;
 
-    beforeEach(async () => {
-        await axios.get('http://127.0.0.1:7865').then((res) => {
-            response = res
+    it('Test API response message', (done) => {
+        axios.get('http://127.0.0.1:7865').then((response) => {
+            expect(response.data.slice(0, -1)).to.equal('Welcome to the payment system')
+            expect(response.status).to.equal(200);
+            done();       
         }).catch((error) => {
             console.log(error)
         })
-    })
-
-    afterEach(() => {
-        response = '';
-    })
-
-    it('Test API response message', () => {
-        expect(response.data.slice(0, -1)).to.equal('Welcome to the payment system')
-    })
-
-    it('Test API response Status Code', () => {
-        expect(response.status).to.equal(200)
     })
 })
