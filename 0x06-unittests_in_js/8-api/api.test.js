@@ -13,7 +13,7 @@ describe('API TEST SUITE', () => {
                 return;
             }
             
-            expect(body.slice(0, -1)).to.equal('Welcome to the payment system')
+            expect(body).to.equal('Welcome to the payment system')
             expect(response.statusCode).to.equal(200);
             done();
         });
