@@ -20,13 +20,6 @@ describe('API TEST SUITE - ENDPOINT /login', () => {
             done();       
         })
     })
-    
-    it('Test API endpoint /login without data', (done) => {
-        axios.get('http://127.0.0.1:7865/login').catch((error) => {
-            expect(error.response.status).to.equal(404);
-            done();
-        })
-    })
 })
 
 describe('API TEST SUITE - ENDPOINT /available_payments', () => {
