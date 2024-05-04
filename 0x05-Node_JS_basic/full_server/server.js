@@ -1,5 +1,5 @@
-const app = require('./routes/index')
+const app = require('./routes/index');
 
-app.listen(1245)
+app.listen(1245);
 
-module.exports = app
+module.exports = app;
