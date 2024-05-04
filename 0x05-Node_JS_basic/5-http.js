@@ -43,14 +43,13 @@ const app = http.createServer((request, response) => {
   if (url === '/') {
     response.end('Hello Holberton School!');
   } else if (url === '/students') {
-    if (process.argv[2]) {
+      response.write('This is the list of our students\n');
       countStudents(process.argv[2]).then((res) => {
         response.end(`This is the list of our students\n${res}`);
       }).catch(() => {
         response.statusCode = 404;
         response.end('Cannot load the database');
       });
-    }
   }
 });
 
