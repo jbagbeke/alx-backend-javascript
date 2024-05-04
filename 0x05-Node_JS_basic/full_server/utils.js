@@ -6,23 +6,23 @@ function readDatabase (filePath) {
       if (error) {
         reject(error)
       } else {
-          const lines = data.split('\n')
-          const fields = {}
-    
-          lines.forEach((line) => {
-            if (line) {
-              line = line.split(',')
-              const len = line.length - 1
-              if (line[len] !== 'field') {
-                if (line[len] in fields) {
-                  fields[line[len]].push(line[0])
-                } else {
-                  fields[line[len]] = [line[0]]
-                }
+        const lines = data.split('\n')
+        const fields = {}
+
+        lines.forEach((line) => {
+          if (line) {
+            line = line.split(',')
+            const len = line.length - 1
+            if (line[len] !== 'field') {
+              if (line[len] in fields) {
+                fields[line[len]].push(line[0])
+              } else {
+                fields[line[len]] = [line[0]]
               }
             }
-          })
-          resolve(fields)
+          }
+        })
+        resolve(fields)
       }
     })
   })
