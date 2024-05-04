@@ -15,7 +15,7 @@ class StudentsController {
     });
   }
 
-  static getAllStudentsByMajor (request, response) {
+  static getAllStudentsByMajor(request, response) {
     const major = request.params.major;
 
     if (['CS', 'SWE'].includes(major)) {
