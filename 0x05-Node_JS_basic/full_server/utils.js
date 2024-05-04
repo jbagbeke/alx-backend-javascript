@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 function readDatabase(filePath) {
   return new Promise((resolve, reject) => {
@@ -11,13 +11,13 @@ function readDatabase(filePath) {
 
         lines.forEach((line) => {
           if (line) {
-            line = line.split(',');
-            const len = line.length - 1;
-            if (line[len] !== 'field') {
-              if (line[len] in fields) {
-                fields[line[len]].push(line[0]);
+            const lne = line.split(',');
+            const len = lne.length - 1;
+            if (lne[len] !== 'field') {
+              if (lne[len] in fields) {
+                fields[lne[len]].push(lne[0]);
               } else {
-                fields[line[len]] = [line[0]];
+                fields[lne[len]] = [lne[0]];
               }
             }
           }
