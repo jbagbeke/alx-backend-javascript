@@ -42,14 +42,13 @@ app.get('/', (req, response) => {
 });
 
 app.get('/students', (req, response) => {
-  if (process.argv[2]) {
-    countStudents(process.argv[2]).then((res) => {
-      response.send(`This is the list of our students\n${res}`);
-    }).catch(() => {
-      response.statusCode = 404;
-      response.send('Cannot load the database');
-    });
-  }
+  response.write('This is the list of our students\n');
+  countStudents(process.argv[2]).then((res) => {
+    response.send(`This is the list of our students\n${res}`);
+  }).catch(() => {
+    response.statusCode = 404;
+    response.send('Cannot load the database');
+  });
 });
 
 app.listen(1245);
