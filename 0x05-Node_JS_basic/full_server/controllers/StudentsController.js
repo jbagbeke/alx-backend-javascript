@@ -16,7 +16,7 @@ class StudentsController {
   }
 
   static getAllStudentsByMajor(request, response) {
-    const major = request.params.major;
+    const { major } = request.params;
 
     if (['CS', 'SWE'].includes(major)) {
       readDatabase(process.argv[2]).then((res) => {
@@ -25,7 +25,7 @@ class StudentsController {
       }).catch(() => {
         response.statusCode = 500;
         response.send('Cannot load the database');
-      })
+      });
     } else {
       response.statusCode = 500;
       response.send('Major parameter must be CS or SWE');
