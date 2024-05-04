@@ -42,12 +42,12 @@ app.get('/', (req, response) => {
 });
 
 app.get('/students', (req, response) => {
-  response.write('This is the list of our students\n');
+  response.setHeader('Content-Type', 'text/plain');
+  // response.write('This is the list of our students\n')
   countStudents(process.argv[2]).then((res) => {
-    response.send(res);
+    response.send(`This is the list of our students\n${res}`);
   }).catch(() => {
-    response.statusCode = 404;
-    response.send('Cannot load the database');
+    response.send('This is the list of our students\nCannot load the database');
   });
 });
 
